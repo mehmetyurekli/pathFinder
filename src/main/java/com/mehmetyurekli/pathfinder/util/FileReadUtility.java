@@ -3,7 +3,11 @@ package com.mehmetyurekli.pathfinder.util;
 import com.aspose.cells.Workbook;
 import com.aspose.cells.Worksheet;
 
-public class ExcelReadUtility {
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class FileReadUtility {
 
     public static int[][] ExcelToJaggedArray(String path) {
 
@@ -36,5 +40,21 @@ public class ExcelReadUtility {
 
         }
         return tempJaggedArray;
+    }
+
+    public static String[] TxtToArray(String path, int size){
+        Scanner file = null;
+        String[] cityArray = new String[size];
+        try {
+            file = new Scanner(new FileInputStream(path));
+            for(int i = 0; i<size; i++){
+                cityArray[i] = file.nextLine();
+            }
+        }
+         catch (FileNotFoundException e) {
+            System.out.println("Couldn't read the file.");
+        }
+
+        return cityArray;
     }
 }
