@@ -3,6 +3,7 @@ package com.mehmetyurekli.pathfinder.services;
 import com.mehmetyurekli.pathfinder.util.FileReadUtility;
 
 import java.util.Locale;
+import java.util.Random;
 
 public class MyDistanceService implements CityDistanceService {
 
@@ -102,5 +103,19 @@ public class MyDistanceService implements CityDistanceService {
             return;
         }
         System.out.println("DISTANCE BETWEEN CITIES " + city1 + " AND " + city2 + " IS " + jaggedArray[city1Index][city2Index] + "KM");
+    }
+
+    @Override
+    public String getRandomCity() {
+        int randNum = new Random().nextInt(0, cities.length);
+        int i = 0;
+        for(String word : cities){
+            if(i == randNum){
+                return cities[i];
+            }
+            i++;
+        }
+        System.out.println("error choosing random word.");
+        return null;
     }
 }

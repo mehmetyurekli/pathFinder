@@ -9,6 +9,6 @@ public interface CityDistanceService {
     public void findFurthestCities();
     public void findClosestCities();
     public void findDistanceBetween(String city1, String city2);
-    //public void getRandomCities();
+    public String getRandomCity();
 
 }
