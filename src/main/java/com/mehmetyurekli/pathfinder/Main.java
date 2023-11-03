@@ -15,9 +15,10 @@ public class Main {
 
         MyDistanceService service = new MyDistanceService();
         service.load("cities.txt", "ilmesafe.xlsx");
-        service.findCitiesInRangeOf("İZMİR", 200);
+        service.findCitiesInRangeOf("İZaMİR", 200);
         service.findFurthestCities();
         service.findClosestCities();
+        service.findDistanceBetween("izmir", "ANKARA");
 
     }
 }

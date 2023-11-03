@@ -2,6 +2,8 @@ package com.mehmetyurekli.pathfinder.services;
 
 import com.mehmetyurekli.pathfinder.util.FileReadUtility;
 
+import java.util.Locale;
+
 public class MyDistanceService implements CityDistanceService {
 
     private int[][] jaggedArray;
@@ -15,6 +17,7 @@ public class MyDistanceService implements CityDistanceService {
 
     @Override
     public void findCitiesInRangeOf(String from, int distance) {
+        from = from.toUpperCase(Locale.forLanguageTag("tr-TR"));
         StringBuilder sb = new StringBuilder();
         //plateNum = index + 1
         int index = -1;
@@ -24,7 +27,7 @@ public class MyDistanceService implements CityDistanceService {
             }
         }
         if (index < 0) {
-            System.out.println("city not found");
+            System.out.println("CITY NOT FOUND");
             return;
         }
 
@@ -74,5 +77,30 @@ public class MyDistanceService implements CityDistanceService {
             zeroIndex++;
         }
         System.out.println(city1 + " - " + city2 + " " + shortestDistance + "KM");
+    }
+
+    @Override
+    public void findDistanceBetween(String city1, String city2) {
+        city1 = city1.toUpperCase(Locale.forLanguageTag("tr-TR"));
+        city2 = city2.toUpperCase();
+        if(city1.equals(city2)){
+            System.out.println("ENTER TWO DIFFERENT CITIES");
+            return;
+        }
+        int city1Index = -1;
+        int city2Index = -1;
+        for(int i = 0; i < cities.length; i++){
+            if(cities[i].equals(city1)){
+                city1Index = i;
+            }
+            if(cities[i].equals(city2)){
+                city2Index = i;
+            }
+        }
+        if(city1Index == -1 || city2Index == -1){
+            System.out.println("CITY NOT FOUND");
+            return;
+        }
+        System.out.println("DISTANCE BETWEEN CITIES " + city1 + " AND " + city2 + " IS " + jaggedArray[city1Index][city2Index] + "KM");
     }
 }
