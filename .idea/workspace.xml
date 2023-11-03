@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f67b3582-af6b-4eb9-bec7-77a4ca9cf299" name="Changes" comment="city read util">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mehmetyurekli/pathfinder/services/CityDistanceService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mehmetyurekli/pathfinder/services/MyDistanceService.java" afterDir="false" />
+    <list default="true" id="f67b3582-af6b-4eb9-bec7-77a4ca9cf299" name="Changes" comment="cities in range of method complete">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mehmetyurekli/pathfinder/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mehmetyurekli/pathfinder/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mehmetyurekli/pathfinder/util/FileReadUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mehmetyurekli/pathfinder/util/FileReadUtility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mehmetyurekli/pathfinder/services/CityDistanceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mehmetyurekli/pathfinder/services/CityDistanceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mehmetyurekli/pathfinder/services/MyDistanceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mehmetyurekli/pathfinder/services/MyDistanceService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +80,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699015627960</updated>
-      <workItem from="1699015629070" duration="10164000" />
+      <workItem from="1699015629070" duration="11522000" />
     </task>
     <task id="LOCAL-00001" summary="read util complete">
       <created>1699020878970</created>
@@ -97,7 +96,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699022726043</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="cities in range of method complete">
+      <created>1699026259196</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1699026259196</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -118,6 +124,22 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="read util complete" />
     <MESSAGE value="city read util" />
-    <option name="LAST_COMMIT_MESSAGE" value="city read util" />
+    <MESSAGE value="cities in range of method complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="cities in range of method complete" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mehmetyurekli/pathfinder/services/MyDistanceService.java</url>
+          <line>60</line>
+          <properties class="com.mehmetyurekli.pathfinder.services.MyDistanceService" method="findClosestCities">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
