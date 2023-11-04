@@ -2,6 +2,8 @@ package com.mehmetyurekli.pathfinder.services;
 
 import com.mehmetyurekli.pathfinder.util.FileReadUtility;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Locale;
 import java.util.Random;
 
@@ -17,9 +19,10 @@ public class MyDistanceService implements CityDistanceService {
     }
 
     @Override
-    public void findCitiesInRangeOf(String from, int distance) {
+    public HashMap<String, Integer> findCitiesInRangeOf(String from, int distance) {
         from = from.toUpperCase(Locale.forLanguageTag("tr-TR"));
         StringBuilder sb = new StringBuilder();
+        HashMap<String, Integer> citiesInRange = new HashMap<>();
         //plateNum = index + 1
         int index = -1;
         for(int i = 0; i < cities.length; i++){
@@ -29,21 +32,20 @@ public class MyDistanceService implements CityDistanceService {
         }
         if (index < 0) {
             System.out.println("CITY NOT FOUND");
-            return;
+            return null;
         }
 
         int[] searchRow = jaggedArray[index];
 
         for(int i = 0; i < searchRow.length; i++){
             if(searchRow[i] < distance && searchRow[i] != 0){
-                sb.append(cities[i]).append("-").append(searchRow[i]).append("KM | ");
+                citiesInRange.put(cities[i], searchRow[i]);
             }
         }
-        System.out.println("DISTANCES BELOW " + distance + "KM FROM CITY " + from);
-        System.out.println(sb);
+        return citiesInRange;
     }
 
-    public void findFurthestCities() {
+    public String findFurthestCities() {
         int zeroIndex = 0; //for skipping the filled up and already checked squares in the Excel file for efficiency. ex: distance of adana to adana
         int longestDistance = Integer.MIN_VALUE;
         String city1 = "ANKARA"; //by default
@@ -58,11 +60,11 @@ public class MyDistanceService implements CityDistanceService {
             }
             zeroIndex++;
         }
-        System.out.println(city1 + " - " + city2 + " " + longestDistance + "KM");
+        return city1 + " - " + city2 + " " + longestDistance + "KM";
     }
 
     @Override
-    public void findClosestCities() {
+    public String findClosestCities() {
         int zeroIndex = 0; //for skipping the filled up and already checked squares in the Excel file for efficiency. ex: distance of adana to adana
         int shortestDistance = Integer.MAX_VALUE;
         String city1 = "İZMİR"; //by default
@@ -77,16 +79,16 @@ public class MyDistanceService implements CityDistanceService {
             }
             zeroIndex++;
         }
-        System.out.println(city1 + " - " + city2 + " " + shortestDistance + "KM");
+        return city1 + " - " + city2 + " " + shortestDistance + "KM";
     }
 
     @Override
-    public void findDistanceBetween(String city1, String city2) {
+    public int findDistanceBetween(String city1, String city2) {
         city1 = city1.toUpperCase(Locale.forLanguageTag("tr-TR"));
-        city2 = city2.toUpperCase();
+        city2 = city2.toUpperCase(Locale.forLanguageTag("tr-TR"));
         if(city1.equals(city2)){
             System.out.println("ENTER TWO DIFFERENT CITIES");
-            return;
+            return -1;
         }
         int city1Index = -1;
         int city2Index = -1;
@@ -100,9 +102,9 @@ public class MyDistanceService implements CityDistanceService {
         }
         if(city1Index == -1 || city2Index == -1){
             System.out.println("CITY NOT FOUND");
-            return;
+            return -1;
         }
-        System.out.println("DISTANCE BETWEEN CITIES " + city1 + " AND " + city2 + " IS " + jaggedArray[city1Index][city2Index] + "KM");
+        return jaggedArray[city1Index][city2Index];
     }
 
     @Override
@@ -116,6 +118,13 @@ public class MyDistanceService implements CityDistanceService {
             i++;
         }
         System.out.println("error choosing random word.");
+        return null;
+    }
+
+    @Override
+    public String maxCitiesFrom(String start, int limit) {
+
+
         return null;
     }
 }
