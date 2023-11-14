@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f67b3582-af6b-4eb9-bec7-77a4ca9cf299" name="Changes" comment="all except findRoute">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mehmetyurekli/pathfinder/util/InputUtility.java" afterDir="false" />
+    <list default="true" id="f67b3582-af6b-4eb9-bec7-77a4ca9cf299" name="Changes" comment="final">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mehmetyurekli/pathfinder/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mehmetyurekli/pathfinder/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mehmetyurekli/pathfinder/Route.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mehmetyurekli/pathfinder/Route.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mehmetyurekli/pathfinder/services/CityDistanceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mehmetyurekli/pathfinder/services/CityDistanceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mehmetyurekli/pathfinder/services/MyDistanceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mehmetyurekli/pathfinder/services/MyDistanceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mehmetyurekli/pathfinder/util/FileReadUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mehmetyurekli/pathfinder/util/FileReadUtility.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +85,7 @@
       <workItem from="1699777243398" duration="8459000" />
       <workItem from="1699871438974" duration="304000" />
       <workItem from="1699900620405" duration="78000" />
-      <workItem from="1699962053767" duration="10434000" />
+      <workItem from="1699962053767" duration="11809000" />
     </task>
     <task id="LOCAL-00001" summary="read util complete">
       <created>1699020878970</created>
@@ -134,7 +129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699962461522</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="final">
+      <created>1699982089046</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1699982089046</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,7 +160,8 @@
     <MESSAGE value="cities in range of method complete" />
     <MESSAGE value="closest and furthest cities" />
     <MESSAGE value="all except findRoute" />
-    <option name="LAST_COMMIT_MESSAGE" value="all except findRoute" />
+    <MESSAGE value="final" />
+    <option name="LAST_COMMIT_MESSAGE" value="final" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

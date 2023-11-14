@@ -49,7 +49,10 @@ public class Main {
                     int limit = InputUtility.getNumber(0, Integer.MAX_VALUE);
                     ArrayList<Integer> arr = new ArrayList<>();
                     arr.add(startCity);
+                    long startTime = System.nanoTime();
                     Route result = service.findRoute(new Route(arr, 0), limit);
+                    long endTime = System.nanoTime();
+                    System.out.println("Runtime: " + (endTime-startTime) + " nanoseconds.");
                     if (result != null) {
 
                         System.out.println("Total distance traveled: " + result.getDistance() + ", Total cities traveled: " + result.getCities().size());
