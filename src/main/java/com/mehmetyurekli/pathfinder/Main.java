@@ -1,5 +1,6 @@
 package com.mehmetyurekli.pathfinder;
 
+import com.mehmetyurekli.pathfinder.services.CityDistanceService;
 import com.mehmetyurekli.pathfinder.services.MyDistanceService;
 
 import java.util.Scanner;
@@ -7,7 +8,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        MyDistanceService service = new MyDistanceService();
+        CityDistanceService service = new MyDistanceService();
         service.load("cities.txt", "ilmesafe.xlsx");
 
         int menuInput = 0;
@@ -54,7 +55,6 @@ public class Main {
                                 continue;
                             }
                             else{
-                                code -= 1;
                                 correctInput = true;
                             }
                         }
@@ -68,6 +68,7 @@ public class Main {
                         }
                     }
                     while (!correctInput);
+                    code -=1;
                     correctInput = false;
 
                     do{
