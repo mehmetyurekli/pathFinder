@@ -18,17 +18,12 @@ public class MyDistanceService implements CityDistanceService {
 
     @Override
     public HashMap<String, Integer> findCitiesInRangeOf(Integer from, int distance) {
-        StringBuilder sb = new StringBuilder();
         HashMap<String, Integer> citiesInRange = new HashMap<>();
-        //plateNum = index + 1
-
         if (from < 0) {
             System.out.println("CITY NOT FOUND");
             return null;
         }
-
         int[] searchRow = jaggedArray[from];
-
         for (int i = 0; i < searchRow.length; i++) {
             if (searchRow[i] < distance && searchRow[i] != 0) {
                 citiesInRange.put(cities[i], searchRow[i]);
@@ -84,53 +79,33 @@ public class MyDistanceService implements CityDistanceService {
 
     @Override
     public int findDistanceBetween(int code1, int code2) {
-
         if (code1 == code2) {
             System.out.println("ENTER TWO DIFFERENT CITIES");
             return -1;
         }
-
-        String city1 = cities[code1].toUpperCase(Locale.forLanguageTag("tr-TR"));
-        String city2 = cities[code2].toUpperCase(Locale.forLanguageTag("tr-TR"));
-
-        int city1Index = -1;
-        int city2Index = -1;
-        for (int i = 0; i < cities.length; i++) {
-            if (cities[i].equals(city1)) {
-                city1Index = i;
-            }
-            if (cities[i].equals(city2)) {
-                city2Index = i;
-            }
-        }
-        if (city1Index == -1 || city2Index == -1) {
+        if (code1 < 0 || code1 > 80 || code2 < 0 || code2 > 80) {
             System.out.println("CITY NOT FOUND");
             return -1;
         }
-        return jaggedArray[city1Index][city2Index];
+        return jaggedArray[code1][code2];
     }
-
 
     @Override
     public int getRandomCity() {
         int randNum = new Random().nextInt(0, cities.length);
-        int i = 0;
-        for (String word : cities) {
+        for (int i = 0; i < cities.length; i++) {
             if (i == randNum) {
                 return randNum;
             }
-            i++;
         }
-        System.out.println("error choosing a random word.");
+        System.out.println("Error choosing a random word.");
         return -1;
     }
 
     @Override
     public int getPlateOf(String city) {
-
         city = city.toUpperCase(Locale.forLanguageTag("tr-TR"));
-
-        for (int i = 0; i < cities.length; i++){
+        for (int i = 0; i < cities.length; i++) {
             if (cities[i].equals(city)) {
                 return i;
             }
@@ -147,9 +122,9 @@ public class MyDistanceService implements CityDistanceService {
     public void printRandomMatrix(int numOfCities) {
         int[] cities = new int[numOfCities];
         ArrayList<Integer> chosen = new ArrayList<>();
-        for(int i = 0; i < cities.length; i++){
+        for (int i = 0; i < cities.length; i++) {
             int randomCity = getRandomCity();
-            if(chosen.contains(randomCity)){
+            if (chosen.contains(randomCity)) {
                 i--;
                 continue;
             }
@@ -159,9 +134,9 @@ public class MyDistanceService implements CityDistanceService {
 
         int[][] matrix = new int[numOfCities][numOfCities];
 
-        for(int row = 0; row < numOfCities; row++){
-            for(int col = 0; col < numOfCities; col++){
-                if(row==col){
+        for (int row = 0; row < numOfCities; row++) {
+            for (int col = 0; col < numOfCities; col++) {
+                if (row == col) {
                     matrix[row][col] = 0;
                     continue;
                 }
@@ -169,14 +144,15 @@ public class MyDistanceService implements CityDistanceService {
             }
         }
 
-        System.out.printf("%15s", " ");
-        for(int i = 0; i < numOfCities; i++){
+        System.out.printf("%15s", "CITIES");
+        for (int i = 0; i < numOfCities; i++) {
             System.out.printf("%15s", this.cities[cities[i]]);
         }
         System.out.println();
-        for(int i = 0; i < numOfCities; i++){
+        System.out.println();
+        for (int i = 0; i < numOfCities; i++) {
             System.out.printf("%15s", this.cities[cities[i]]);
-            for(int j = 0; j < numOfCities; j++){
+            for (int j = 0; j < numOfCities; j++) {
                 System.out.printf("%15s", matrix[i][j]);
             }
             System.out.println();
@@ -184,42 +160,28 @@ public class MyDistanceService implements CityDistanceService {
         }
     }
 
-    Route bestRoute;
-    @Override
-    public Route findRoute(Route route, int limit, int currentCode) {
-
-        int size = route.getCities().size();
-
-        for(int i = 0; i < cities.length; i++){
-            if(i == currentCode || route.getCities().contains(i)){ // TODO: 11.11.2023
+    public Route findRoute(Route currentRoute, int limit) {
+        Route result = currentRoute;
+        for (int i = 0; i < jaggedArray.length; i++) {
+            if (currentRoute.getCities().contains(i)) {
+                //already visited.
                 continue;
             }
-            if(route.getDistance() + findDistanceBetween(currentCode, i) <= limit){
-                if(!route.getCities().contains(i)){
-                    route.getCities().add(i);
-                }
-                route.setDistance(route.getDistance() + findDistanceBetween(route.getCities().get(size-1), i));
-
-                if(bestRoute == null){
-                    bestRoute = route;
-                }
-
-                if(route.getCities().size() >= bestRoute.getCities().size() && route.getDistance() <= bestRoute.getDistance()){
-                    bestRoute = route;
-                }
-
-                if(limit-route.getDistance() < findDistanceBetween(findClosestCities()[0], findClosestCities()[1])){
-                    break;
-                }
-
-                else{
-                    bestRoute = findRoute(route, limit, i);
-                }
+            int distanceToCity = 0;
+            if (!currentRoute.getCities().isEmpty()) {
+                //the if check is not necessary in this problem. but if we run the program without a starting city,
+                //this check is necessary to find the best route in a given range.
+                Integer from = currentRoute.getCities().get(currentRoute.getCities().size() - 1);
+                distanceToCity += jaggedArray[from][i];
             }
+            if (distanceToCity + currentRoute.getDistance() > limit) {
+                continue;
+            }
+            Route clone = currentRoute.copy();
+            clone.addCity(i, distanceToCity);
+            Route subRoute = findRoute(clone, limit);
+            result = Route.pickBetter(result, subRoute);
         }
-        return bestRoute;
+        return result;
     }
-
-
-
 }
