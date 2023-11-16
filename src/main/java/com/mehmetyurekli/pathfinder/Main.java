@@ -1,5 +1,6 @@
 package com.mehmetyurekli.pathfinder;
 
+import com.mehmetyurekli.pathfinder.models.Route;
 import com.mehmetyurekli.pathfinder.services.CityDistanceService;
 import com.mehmetyurekli.pathfinder.services.MyDistanceService;
 import com.mehmetyurekli.pathfinder.util.InputUtility;
@@ -40,7 +41,7 @@ public class Main {
                     System.out.println("Closest cities are: " + service.getNameOf(closest[0]) + " - " + service.getNameOf(closest[1]));
                     System.out.println("Distance between them: " + closest[2] + "KM");
                     int[] furthest = service.findFurthestCities();
-                    System.out.println("Closest cities are: " + service.getNameOf(furthest[0]) + " - " + service.getNameOf(furthest[1]));
+                    System.out.println("Furthest cities are: " + service.getNameOf(furthest[0]) + " - " + service.getNameOf(furthest[1]));
                     System.out.println("Distance between them: " + furthest[2] + "KM");
                 }
                 case 3 -> {
@@ -54,11 +55,15 @@ public class Main {
                     long endTime = System.nanoTime();
                     System.out.println("Runtime: " + (endTime-startTime) + " nanoseconds.");
                     if (result != null) {
-
+                        int i = 0;
                         System.out.println("Total distance traveled: " + result.getDistance() + ", Total cities traveled: " + result.getCities().size());
                         System.out.print("ROUTE: ");
                         for (Integer city : result.getCities()) {
                             System.out.printf("%5s - ", service.getNameOf(city));
+                            if(i<result.getCities().size()-1){
+                                System.out.printf("%1dKM - ", result.getDistancesBetween().get(i));
+                                i++;
+                            }
                         }
                         System.out.println();
                     } else {

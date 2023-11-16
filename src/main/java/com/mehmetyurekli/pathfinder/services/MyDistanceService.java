@@ -1,6 +1,6 @@
 package com.mehmetyurekli.pathfinder.services;
 
-import com.mehmetyurekli.pathfinder.Route;
+import com.mehmetyurekli.pathfinder.models.Route;
 import com.mehmetyurekli.pathfinder.util.FileReadUtility;
 
 import java.util.*;
@@ -32,6 +32,7 @@ public class MyDistanceService implements CityDistanceService {
         return citiesInRange;
     }
 
+    @Override
     public int[] findFurthestCities() {
         int zeroIndex = 0; //for skipping the filled up and already checked squares in the Excel file for efficiency. ex: distance of adana to adana
         int longestDistance = Integer.MIN_VALUE;
@@ -160,6 +161,7 @@ public class MyDistanceService implements CityDistanceService {
         }
     }
 
+    @Override
     public Route findRoute(Route currentRoute, int limit) {
         Route result = currentRoute;
         for (int i = 0; i < jaggedArray.length; i++) {
@@ -172,7 +174,7 @@ public class MyDistanceService implements CityDistanceService {
                 //the if check is not necessary in this problem. but if we run the program without a starting city,
                 //this check is necessary to find the best route in a given range.
                 Integer from = currentRoute.getCities().get(currentRoute.getCities().size() - 1);
-                distanceToCity += jaggedArray[from][i];
+                distanceToCity += findDistanceBetween(from, i);
             }
             if (distanceToCity + currentRoute.getDistance() > limit) {
                 continue;

@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class InputUtility {
 
-    public static int getCode(CityDistanceService service) {
+    public static int getCode(CityDistanceService service) { //gets a correct city code from user. string or int input
         Scanner scanner = new Scanner(System.in);
         int code;
         boolean correctInput = false;
@@ -35,12 +35,12 @@ public class InputUtility {
         return code;
     }
 
-    public static int getNumber(int start, int end) {
+    public static int getNumber(int start, int end) { //gets a number in given range from user.
         Scanner scanner = new Scanner(System.in);
         int number = 0;
         boolean correctInput = false;
         do {
-            if (end == Integer.MAX_VALUE) {
+            if (end == Integer.MAX_VALUE) { //if there are no upper limits
                 System.out.printf("Enter an integer bigger than %d: ", start);
             } else {
                 System.out.printf("Enter an integer between %d-%d: ", start, end);

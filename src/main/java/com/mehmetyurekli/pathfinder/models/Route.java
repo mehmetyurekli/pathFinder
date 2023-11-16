@@ -1,4 +1,4 @@
-package com.mehmetyurekli.pathfinder;
+package com.mehmetyurekli.pathfinder.models;
 
 import java.util.ArrayList;
 
@@ -6,11 +6,19 @@ public class Route {
 
     private ArrayList<Integer> cities;
     private int distance;
+    private ArrayList<Integer> distancesBetween;
 
 
     public Route(ArrayList<Integer> cities, int distance) {
         this.cities = cities;
         this.distance = distance;
+        this.distancesBetween = new ArrayList<>();
+    }
+
+    public Route(ArrayList<Integer> cities, int distance, ArrayList<Integer> distancesBetween) {
+        this.cities = cities;
+        this.distance = distance;
+        this.distancesBetween = distancesBetween;
     }
 
     public static Route pickBetter(Route r1, Route r2) {
@@ -29,18 +37,24 @@ public class Route {
 
     public Route copy() {
         ArrayList<Integer> cities = new ArrayList<>();
+        ArrayList<Integer> distancesBetween = new ArrayList<>();
+
         for (Integer city : this.getCities()
         ) {
             cities.add(city);
         }
+        for(Integer distance : this.distancesBetween){
+            distancesBetween.add(distance);
+        }
 
 
-        return new Route(cities, this.getDistance());
+        return new Route(cities, this.getDistance(), distancesBetween);
     }
 
     public void addCity(int code, int distance) {
         cities.add(code);
         this.distance += distance;
+        this.distancesBetween.add(distance);
     }
 
     public ArrayList<Integer> getCities() {
@@ -51,4 +65,7 @@ public class Route {
         return distance;
     }
 
+    public ArrayList<Integer> getDistancesBetween() {
+        return distancesBetween;
+    }
 }

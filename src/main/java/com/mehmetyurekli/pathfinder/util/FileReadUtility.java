@@ -20,7 +20,7 @@ public class FileReadUtility {
         assert wb != null;
         Worksheet worksheet = wb.getWorksheets().get(0);
         int size = worksheet.getCells().getMaxRow() - 1; //getMaxRow method doesn't count empty rows.
-        // -1 is for avoiding non distance entries and getting the number of cities.
+        // so -1 is for avoiding non distance entries and getting the number of cities.
         int[][] tempJaggedArray = new int[size][];
 
         //row and col indexes are 2 to avoid getting non distance entries
@@ -39,7 +39,6 @@ public class FileReadUtility {
         }
         return tempJaggedArray;
     }
-
     public static String[] TxtToArray(String path, int size) {
         Scanner file;
         String[] cityArray = new String[size];

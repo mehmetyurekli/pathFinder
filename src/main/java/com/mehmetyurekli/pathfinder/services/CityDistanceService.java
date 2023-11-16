@@ -1,6 +1,6 @@
 package com.mehmetyurekli.pathfinder.services;
 
-import com.mehmetyurekli.pathfinder.Route;
+import com.mehmetyurekli.pathfinder.models.Route;
 
 import java.util.HashMap;
 
