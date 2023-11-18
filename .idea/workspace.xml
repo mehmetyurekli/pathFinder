@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f67b3582-af6b-4eb9-bec7-77a4ca9cf299" name="Changes" comment="now prints runtime of case 3">
+    <list default="true" id="f67b3582-af6b-4eb9-bec7-77a4ca9cf299" name="Changes" comment="small changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mehmetyurekli/pathfinder/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mehmetyurekli/pathfinder/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mehmetyurekli/pathfinder/Route.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mehmetyurekli/pathfinder/models/Route.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mehmetyurekli/pathfinder/services/CityDistanceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mehmetyurekli/pathfinder/services/CityDistanceService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mehmetyurekli/pathfinder/services/MyDistanceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mehmetyurekli/pathfinder/services/MyDistanceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mehmetyurekli/pathfinder/util/FileReadUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mehmetyurekli/pathfinder/util/FileReadUtility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mehmetyurekli/pathfinder/util/InputUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mehmetyurekli/pathfinder/util/InputUtility.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +93,10 @@
       <workItem from="1700072629481" duration="8000" />
       <workItem from="1700075519564" duration="609000" />
       <workItem from="1700133555914" duration="935000" />
-      <workItem from="1700134608712" duration="2794000" />
+      <workItem from="1700134608712" duration="2836000" />
+      <workItem from="1700156988564" duration="747000" />
+      <workItem from="1700307112633" duration="3151000" />
+      <workItem from="1700310569444" duration="122000" />
     </task>
     <task id="LOCAL-00001" summary="read util complete">
       <created>1699020878970</created>
@@ -155,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699983362539</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="small changes">
+      <created>1700137434804</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1700137434804</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,27 +187,10 @@
     <MESSAGE value="all except findRoute" />
     <MESSAGE value="final" />
     <MESSAGE value="now prints runtime of case 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="now prints runtime of case 3" />
+    <MESSAGE value="small changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="small changes" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/mehmetyurekli/pathfinder/util/FileReadUtility.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/mehmetyurekli/pathfinder/services/MyDistanceService.java</url>
-          <line>164</line>
-          <properties class="com.mehmetyurekli.pathfinder.services.MyDistanceService" method="findRoute">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="com.mehmetyurekli.pathfinder.Route" memberName="cities" />

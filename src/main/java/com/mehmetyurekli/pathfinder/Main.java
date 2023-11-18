@@ -13,6 +13,7 @@ public class Main {
         CityDistanceService service = new MyDistanceService();
         service.load("cities.txt", "ilmesafe.xlsx");
 
+
         int menuInput = 0;
         while (menuInput != 5) {
             System.out.println("""     

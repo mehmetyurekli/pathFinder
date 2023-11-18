@@ -19,10 +19,6 @@ public class MyDistanceService implements CityDistanceService {
     @Override
     public HashMap<String, Integer> findCitiesInRangeOf(Integer from, int distance) {
         HashMap<String, Integer> citiesInRange = new HashMap<>();
-        if (from < 0) {
-            System.out.println("CITY NOT FOUND");
-            return null;
-        }
         int[] searchRow = jaggedArray[from];
         for (int i = 0; i < searchRow.length; i++) {
             if (searchRow[i] < distance && searchRow[i] != 0) {
@@ -84,16 +80,13 @@ public class MyDistanceService implements CityDistanceService {
             System.out.println("ENTER TWO DIFFERENT CITIES");
             return -1;
         }
-        if (code1 < 0 || code1 > 80 || code2 < 0 || code2 > 80) {
-            System.out.println("CITY NOT FOUND");
-            return -1;
-        }
         return jaggedArray[code1][code2];
     }
 
     @Override
     public int getRandomCity() {
         int randNum = new Random().nextInt(0, cities.length);
+
         for (int i = 0; i < cities.length; i++) {
             if (i == randNum) {
                 return randNum;
